@@ -7,6 +7,18 @@
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Holi");
+
+        // Tomar en cuenta que cuando se compara, la de mayor prioridad es menor
+        // osea, mira este ejemplo que deje, A<C, osea, la mas importante es la menor
+        Paciente p1 = new Paciente("Eric", "Pierna doblada", "A");
+        Paciente p2 = new Paciente("Eric", "Pierna rota", "C");
+        Paciente p3 = new Paciente("Eric", "Pierna rota", "E");
+        Paciente p4 = new Paciente("Eric", "Pierna floja", "B");
+
+
+        System.out.println(p1.compareTo(p3));
+
+
+
     }
 }
