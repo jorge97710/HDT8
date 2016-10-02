@@ -1,3 +1,8 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+
 /**
  * Clase principal,
  * @author Eric Mendoza 15002
@@ -6,19 +11,26 @@
  * @version 1.0
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        // Leer archivo de texto
+        BufferedReader br = new BufferedReader(new FileReader("pacientes.txt"));
 
-        // Tomar en cuenta que cuando se compara, la de mayor prioridad es menor
-        // osea, mira este ejemplo que deje, A<C, osea, la mas importante es la menor
-        Paciente p1 = new Paciente("Eric", "Pierna doblada", "A");
-        Paciente p2 = new Paciente("Eric", "Pierna rota", "C");
-        Paciente p3 = new Paciente("Eric", "Pierna rota", "E");
-        Paciente p4 = new Paciente("Eric", "Pierna floja", "B");
+        // Crear nuevo VectorHeap
+        VectorHeap<Paciente> vectorHeap = new VectorHeap<Paciente>();
 
+        String linea;
+        while((linea = br.readLine()) != null)
+        {
+            // Leer y guardar cada caso en priorityQueue
+            String[] ar = linea.split(", ");
+            vectorHeap.add(new Paciente(ar[0], ar[1], ar[2]));
+        }
+        br.close();
 
-        System.out.println(p1.compareTo(p3));
-
-
+        System.out.println(vectorHeap.remove().toString());
+        System.out.println(vectorHeap.remove().toString());
+        System.out.println(vectorHeap.remove().toString());
+        System.out.println(vectorHeap.remove().toString());
 
     }
 }
