@@ -125,4 +125,9 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
         if (data.size() > 1) pushDownRoot(0);
         return minVal;
     }
+
+    @Override
+    public String toString() {
+        return "";
+    }
 }

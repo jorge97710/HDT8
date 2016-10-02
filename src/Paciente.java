@@ -58,4 +58,9 @@ public class Paciente implements Comparable<Paciente>{
         // Devuelve mayor a cero si es mayor, 0 si son iguales y menor a cero si son menores
         return prioridad1.compareTo(prioridad2);
     }
+
+    @Override
+    public String toString() {
+        return "Paciente: " + nombre + ", " + situacion +  ", " + prioridad;
+    }
 }
