@@ -1,20 +1,15 @@
-import java.util.PriorityQueue;
 import java.util.Vector;
 
 /**
- * Clase de VectorHeap obtenido de JFC
+ * Clase de VectorHeap obtenido de BlackBoard
  *
  * @author Eric Mendoza 15002
  * @author Jorge Azmitia 15202
  * @since 30/09/2016
  * @version 1.0
  */
-public class VectorHeap<E extends Comparable<E>> extends PriorityQueue<Object> {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class VectorHeapb<E extends Comparable<E>> implements PriorityQueue<E> {
 
 	/**
 	 * @param i
@@ -54,7 +49,7 @@ public class VectorHeap<E extends Comparable<E>> extends PriorityQueue<Object> {
 	/**
 	 * 
 	 */
-	public VectorHeap()
+	public VectorHeapb()
 	// post: constructs a new priority queue
 	{
 		data = new Vector<E>();
@@ -63,7 +58,7 @@ public class VectorHeap<E extends Comparable<E>> extends PriorityQueue<Object> {
 	/**
 	 * @param v
 	 */
-	public VectorHeap(Vector<E> v)
+	public VectorHeapb(Vector<E> v)
 	// post: constructs a new priority queue from an unordered vector
 	{
 		int i;
@@ -73,9 +68,10 @@ public class VectorHeap<E extends Comparable<E>> extends PriorityQueue<Object> {
 		}
 	}
 
-	/**
-	 * @param value
+	/* (non-Javadoc)
+	 * @see PriorityQueue#add(java.lang.Comparable)
 	 */
+	
 	public void add(E value)
 	// pre: value is non-null comparable
 	// post: value is added to priority queue
@@ -84,27 +80,26 @@ public class VectorHeap<E extends Comparable<E>> extends PriorityQueue<Object> {
 		percolateUp(data.size() - 1);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.PriorityQueue#clear()
+	/* (non-Javadoc)
+	 * @see PriorityQueue#clear()
 	 */
+	@Override
 	public void clear() {
 		data.clear();
 	}
 
-	/**
-	 * @return
+	/* (non-Javadoc)
+	 * @see PriorityQueue#getFirst()
 	 */
+	@Override
 	public E getFirst() {
 		return data.elementAt(0);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.AbstractCollection#isEmpty()
+	/* (non-Javadoc)
+	 * @see PriorityQueue#isEmpty()
 	 */
+	@Override
 	public boolean isEmpty() {
 		return data.size() == 0;
 	}
@@ -159,10 +154,8 @@ public class VectorHeap<E extends Comparable<E>> extends PriorityQueue<Object> {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.AbstractQueue#remove()
+	/* (non-Javadoc)
+	 * @see PriorityQueue#remove()
 	 */
 	public E remove()
 	// pre: !isEmpty()
@@ -176,20 +169,16 @@ public class VectorHeap<E extends Comparable<E>> extends PriorityQueue<Object> {
 		return minVal;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.PriorityQueue#size()
+	/* (non-Javadoc)
+	 * @see PriorityQueue#size()
 	 */
-
+	@Override
 	public int size() {
 		return data.size();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.AbstractCollection#toString()
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
